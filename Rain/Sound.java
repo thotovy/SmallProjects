@@ -1,4 +1,3 @@
-import java.io.File;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -10,7 +9,7 @@ public class Sound {
 	public Sound() {
 		try {
 			clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(new File("rain_low.wav")));
+			clip.open(AudioSystem.getAudioInputStream(Rain.class.getResource("/sound/rain_low.wav")));
 			volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			volume.setValue(-6);
 		}catch(Exception e) {
